@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Almíbar - Jabones Artesanales & Sustentabilidad | CDMX</title>
+    <!-- Google Fonts para tipografía moderna y amigable -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* */
+        /* --- VARIABLES DE DISEÑO (PALETA DE COLORES Y ESTILOS BASE) --- */
+        :root {
+            --primary-green: #2D6A4F;
+            --secondary-green: #52B788;
+            --light-green: #D8F3DC;
+            --accent-pink: #FF477E;
+            --accent-pink-hover: #E03167;
+            --warm-orange: #FF9F1C;
+            --warm-yellow: #FFBF69;
+            --bg-cream: #FDFBF7;
+            --bg-white: #FFFFFF;
+            --text-dark: #1B4332;
+            --text-muted: #4A5D4E;
+            --border-light: rgba(82, 183, 136, 0.2);
+            --shadow-soft: 0 10px 30px rgba(45, 106, 79, 0.08);
+            --shadow-hover: 0 15px 35px rgba(45, 106, 79, 0.15);
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --radius-sm: 8px;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /* --- RESET GENERAL --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .logo-text {
+            font-family: 'Fredoka', sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* --- BOTONES MODERNOS --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            gap: 8px;
+        }
+
+        .btn-accent {
+            background-color: var(--accent-pink);
+            color: #FFFFFF;
+            box-shadow: 0 4px 15px rgba(255, 71, 126, 0.3);
+        }
+
+        .btn-accent:hover {
+            background-color: var(--accent-pink-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 71, 126, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: var(--light-green);
+            color: var(--primary-green);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--secondary-green);
+            color: #FFFFFF;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary-green);
+            color: var(--primary-green);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-green);
+            color: #FFFFFF;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* */
+        /* --- ENCABEZADO (HEADER) --- */
+        .header {
+            position: sticky;
+            top: 0;
+            background-color: rgba(253, 251, 247, 0.96);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            padding: 14px 0;
+            border-bottom: 2px solid var(--border-light);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-badge-svg {
+            height: 54px;
+            width: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .logo:hover .logo-badge-svg {
+            transform: scale(1.03);
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-pink);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background-color: var(--accent-pink);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 1.8rem;
+            background: none;
+            border: none;
+            color: var(--primary-green);
+            cursor: pointer;
+        }
+
+        /* */
+        /* --- HERO SECTION --- */
+        .hero {
+            padding: 60px 0 90px 0;
+            position: relative;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--light-green);
+            color: var(--primary-green);
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .hero-title {
+            font-size: 3.4rem;
+            line-height: 1.12;
+            color: var(--primary-green);
+            margin-bottom: 20px;
+        }
+
+        .hero-title span {
+            color: var(--warm-orange);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-description {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 35px;
+            max-width: 540px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-card-img {
+            width: 100%;
+            max-width: 480px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-hover);
+            transform: rotate(-2deg);
+            transition: var(--transition);
+            background: linear-gradient(135deg, var(--warm-yellow), #A7F3D0);
+            padding: 14px;
+        }
+
+        .hero-card-img:hover {
+            transform: rotate(0deg) scale(1.02);
+        }
+
+        .hero-badge-floating {
+            position: absolute;
+            bottom: -20px;
+            left: 20px;
+            background-color: var(--bg-white);
+            padding: 14px 22px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-soft);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            color: var(--primary-green);
+            border: 1px solid var(--border-light);
+        }
+
+        /* */
+        /* --- SECCIÓN CARACTERÍSTICAS --- */
+        .features {
+            padding: 70px 0;
+            background-color: var(--bg-white);
+            border-radius: var(--radius-lg);
+            margin: 20px 0;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 50px auto;
+        }
+
+        .section-subtitle {
+            color: var(--accent-pink);
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+        }
+
+        .section-title {
+            font-size: 2.4rem;
+            color: var(--primary-green);
+            margin-top: 8px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: var(--bg-cream);
+            padding: 35px 28px;
+            border-radius: var(--radius-md);
+            transition: var(--transition);
+            border: 2px solid transparent;
+            text-align: left;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--secondary-green);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .icon-orange { background-color: rgba(255, 159, 28, 0.2); }
+        .icon-green { background-color: rgba(82, 183, 136, 0.2); }
+        .icon-pink { background-color: rgba(255, 71, 126, 0.2); }
+
+        .feature-title {
+            font-size: 1.35rem;
+            color: var(--primary-green);
+            margin-bottom: 12px;
+        }
+
+        .feature-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* */
+        /* --- SECCIÓN SERVICIOS Y SOLUCIONES B2B --- */
+        .services {
+            padding: 90px 0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background-color: var(--bg-white);
+            border-radius: var(--radius-lg);
+            padding: 35px;
+            box-shadow: var(--shadow-soft);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 1px solid var(--border-light);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .service-badge {
+            display: inline-block;
+            background-color: var(--warm-yellow);
+            color: var(--text-dark);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            align-self: flex-start;
+        }
+
+        .service-title {
+            font-size: 1.6rem;
+            color: var(--primary-green);
+            margin-bottom: 12px;
+        }
+
+        .service-text {
+            color: var(--text-muted);
+            font-size: 0.98rem;
+            margin-bottom: 24px;
+        }
+
+        .service-list {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .service-list li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 8px;
+            font-size: 0.92rem;
+            color: var(--text-dark);
+        }
+
+        .service-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--secondary-green);
+            font-weight: bold;
+        }
+
+        /* */
+        /* --- SECCIÓN PRODUCTOS --- */
+        .products {
+            padding: 80px 0;
+            background-color: var(--bg-white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .product-card {
+            background-color: var(--bg-cream);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--border-light);
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .product-image {
+            height: 220px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-tag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: rgba(255, 255, 255, 0.95);
+            color: var(--primary-green);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .product-content {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-title {
+            font-size: 1.3rem;
+            color: var(--primary-green);
+            margin-bottom: 8px;
+        }
+
+        .product-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(0,0,0,0.06);
+            padding-top: 15px;
+        }
+
+        .product-price {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--primary-green);
+        }
+
+        .soap-svg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* */
+        /* --- SECCIÓN SEGURIDAD & CALIDAD DERMATOLÓGICA --- */
+        .security {
+            padding: 90px 0;
+        }
+
+        .security-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .security-card {
+            background-color: var(--bg-white);
+            padding: 30px 20px;
+            border-radius: var(--radius-md);
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid var(--border-light);
+            transition: var(--transition);
+        }
+
+        .security-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary-green);
+        }
+
+        .security-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .security-title {
+            font-size: 1.15rem;
+            color: var(--primary-green);
+            margin-bottom: 8px;
+        }
+
+        .security-desc {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        /* */
+        /* --- SECCIÓN IMPACTO --- */
+        .impact {
+            padding: 80px 40px;
+            background: linear-gradient(135deg, var(--primary-green), #1B4332);
+            color: #FFFFFF;
+            border-radius: var(--radius-lg);
+            margin-bottom: 80px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-hover);
+        }
+
+        .impact-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .impact-title {
+            font-size: 2.8rem;
+            margin-bottom: 18px;
+            color: var(--light-green);
+        }
+
+        .impact-text {
+            font-size: 1.15rem;
+            opacity: 0.92;
+            margin-bottom: 40px;
+        }
+
+        .impact-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .stat-card {
+            background-color: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(8px);
+            padding: 25px 15px;
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .stat-number {
+            font-size: 2.6rem;
+            font-family: 'Fredoka', sans-serif;
+            color: var(--warm-yellow);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.85;
+        }
+
+        /* */
+        /* --- SECCIÓN CONTACTO & COTIZACIONES --- */
+        .contact {
+            padding: 80px 0;
+            background-color: var(--bg-white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-soft);
+            margin-bottom: 80px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-top: 40px;
+            align-items: start;
+        }
+
+        .contact-info {
+            padding-right: 20px;
+        }
+
+        .contact-title {
+            font-size: 2rem;
+            color: var(--primary-green);
+            margin-bottom: 15px;
+        }
+
+        .contact-desc {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .info-icon {
+            width: 44px;
+            height: 44px;
+            background-color: var(--light-green);
+            color: var(--primary-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .info-text h4 {
+            font-size: 1rem;
+            color: var(--primary-green);
+        }
+
+        .info-text p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+        }
+
+        .contact-form {
+            background-color: var(--bg-cream);
+            padding: 35px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-light);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            margin-bottom: 8px;
+        }
+
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: var(--radius-sm);
+            border: 1.5px solid rgba(45, 106, 79, 0.2);
+            background-color: #FFFFFF;
+            font-family: inherit;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            transition: var(--transition);
+        }
+
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--secondary-green);
+            box-shadow: 0 0 0 3px rgba(82, 183, 136, 0.25);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 110px;
+        }
+
+        .alert-box {
+            display: none;
+            padding: 12px;
+            border-radius: var(--radius-sm);
+            background-color: var(--light-green);
+            color: var(--primary-green);
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* */
+        /* --- PIE DE PÁGINA (FOOTER) --- */
+        .footer {
+            background-color: var(--bg-cream);
+            padding: 60px 0 30px 0;
+            border-top: 1px solid rgba(45, 106, 79, 0.15);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand p {
+            color: var(--text-muted);
+            margin-top: 15px;
+            max-width: 320px;
+            font-size: 0.92rem;
+        }
+
+        .footer-title {
+            font-size: 1.05rem;
+            color: var(--primary-green);
+            margin-bottom: 18px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-pink);
+        }
+
+        .copyright {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            padding-top: 30px;
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        /* --- RESPONSIVIDAD (MOBILE & TABLET) --- */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.7rem;
+            }
+            .features-grid, .products-grid, .security-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: 1.5fr 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--bg-cream);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: var(--shadow-soft);
+                border-bottom: 2px solid var(--border-light);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .hero-description {
+                margin: 0 auto 30px auto;
+            }
+
+            .hero-cta {
+                justify-content: center;
+            }
+
+            .features-grid, .services-grid, .products-grid, .security-grid, .impact-stats, .contact-grid, .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-title {
+                font-size: 2.2rem;
+            }
+
+            .impact {
+                padding: 50px 20px;
+            }
+
+            .impact-title {
+                font-size: 2rem;
+            }
+
+            .contact-info {
+                padding-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ENCABEZADO CON LOGO VECTORIAL -->
+    <header class="header">
+        <div class="container nav-wrapper">
+            <a href="#" class="logo" aria-label="Almíbar - Jabones Artesanales Naturales">
+                <svg class="logo-badge-svg" viewBox="0 0 280 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="2" y="5" width="55" height="55" rx="16" fill="url(#logo_grad)"/>
+                    <path d="M29 17 C20 17 16 25 16 33 C16 42 22 48 29 48 C36 48 42 42 42 33 C42 25 38 17 29 17 Z" fill="#FFFFFF" opacity="0.95"/>
+                    <path d="M29 20 C29 20 34 26 34 33 C34 39 31 44 29 45 C27 44 24 39 24 33 C24 26 29 20 29 20 Z" fill="#2D6A4F"/>
+                    <path d="M29 14 Q35 10 38 14 Q32 17 29 14 Z" fill="#FFBF69"/>
+                    <text x="70" y="32" font-family="'Fredoka', sans-serif" font-weight="700" font-size="26" fill="#2D6A4F" letter-spacing="1">ALMÍBAR</text>
+                    <text x="71" y="45" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="7.5" fill="#FF477E" letter-spacing="1.2">JABONES ARTESANALES NATURALES</text>
+                    <text x="71" y="55" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="6.5" fill="#52B788" letter-spacing="1">FRUTAS REUTILIZADAS</text>
+                    <defs>
+                        <linearGradient id="logo_grad" x1="0" y1="0" x2="55" y2="55" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#FF9F1C"/>
+                            <stop offset="1" stop-color="#FF477E"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </a>
+
+            <button class="mobile-toggle" id="menuToggle" aria-label="Abrir Menú">☰</button>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#servicios" class="nav-link">Servicios</a></li>
+                <li><a href="#productos" class="nav-link">Productos</a></li>
+                <li><a href="#seguridad" class="nav-link">Seguridad & Calidad</a></li>
+                <li><a href="#impacto" class="nav-link">Impacto</a></li>
+                <li><a href="#contacto" class="btn btn-accent" style="padding: 10px 22px; font-size: 0.9rem;">Contacto & Cotizar</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <!-- SECCIÓN PRINCIPAL (HERO) -->
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <span class="badge">🍃 CDMX • Supraciclaje Consciente</span>
+                    <h1 class="hero-title">Segundas oportunidades que <span>cuidan tu piel</span></h1>
+                    <p class="hero-description">
+                        Rescatamos frutas y verduras de la CDMX descartadas únicamente por estética. Las transformamos mediante cold process en jabones nutracéuticos llenos de antioxidantes y vida.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#productos" class="btn btn-accent">Probar Jabones</a>
+                        <a href="#servicios" class="btn btn-secondary">Soluciones B2B / Hoteles</a>
+                    </div>
+                </div>
+                
+                <div class="hero-image-wrapper">
+                    <div class="hero-card-img">
+                        <svg class="soap-svg" viewBox="0 0 400 300" rx="20" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="400" height="300" rx="16" fill="#F4A261"/>
+                            <circle cx="80" cy="80" r="45" fill="#E76F51" opacity="0.6"/>
+                            <circle cx="330" cy="220" r="65" fill="#2A9D8F" opacity="0.5"/>
+                            <path d="M 140 150 Q 200 70 260 150 T 360 150" stroke="#E9C46A" stroke-width="12" fill="none" stroke-linecap="round"/>
+                            <rect x="90" y="85" width="220" height="130" rx="16" fill="#FFFFFF" opacity="0.95"/>
+                            <text x="200" y="132" font-family="'Fredoka', sans-serif" font-size="24" fill="#2D6A4F" text-anchor="middle" font-weight="bold">ALMÍBAR</text>
+                            <text x="200" y="155" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="800" fill="#FF477E" text-anchor="middle" letter-spacing="1.2">JABONES ARTESANALES</text>
+                            <text x="200" y="174" font-family="'Plus Jakarta Sans', sans-serif" font-size="8.5" font-weight="600" fill="#2D6A4F" text-anchor="middle">FRUTAS REUTILIZADAS</text>
+                        </svg>
+                    </div>
+                    <div class="hero-badge-floating">
+                        <span class="icon">🥑</span>
+                        <span>+850 kg de alimento rescatado</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN CARACTERÍSTICAS -->
+        <section class="features">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">¿Por qué Almíbar?</span>
+                    <h2 class="section-title">Reinventamos el concepto de aprovechamiento</h2>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon icon-orange">
+                            <span>🥭</span>
+                        </div>
+                        <h3 class="feature-title">Ingredientes Rescatados</h3>
+                        <p class="feature-desc">
+                            Aprovechamos frutas y hortalizas locales de la Central de Abasto que conservan intactos sus nutrientes pero son rechazadas por tamaño o color.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon icon-pink">
+                            <span>🧼</span>
+                        </div>
+                        <h3 class="feature-title">Cosmética Botánica</h3>
+                        <p class="feature-desc">
+                            Aceites prensados en frío y mantecas vegetales saponificadas artesanalmente para brindar nutrición pura sin químicos agresivos.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon icon-green">
+                            <span>🌱</span>
+                        </div>
+                        <h3 class="feature-title">Cero Huella Residual</h3>
+                        <p class="feature-desc">
+                            Productos 100% biodegradables y empaques de papel semilla compostables que puedes plantar en casa.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN SERVICIOS -->
+        <section class="services" id="servicios">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Lo que ofrecemos</span>
+                    <h2 class="section-title">Nuestros Servicios y Soluciones</h2>
+                </div>
+
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div>
+                            <span class="service-badge">Hoteles & Airbnb</span>
+                            <h3 class="service-title">Amenidades Ecológicas Personalizadas</h3>
+                            <p class="service-text">
+                                Diseñamos mini barras de jabón artesanal con la identidad visual de tu hotel boutique o espacio de hospedaje eco-friendly en México.
+                            </p>
+                            <ul class="service-list">
+                                <li>Barras personalizadas desde 30g a 100g.</li>
+                                <li>Sellado con el logo de tu marca o establecimiento.</li>
+                                <li>Sellos sustentables informativos para los huéspedes.</li>
+                            </ul>
+                        </div>
+                        <a href="#contacto" class="btn btn-outline" onclick="selectSubject('Amenidades Hoteleras')">Cotizar Amenidades</a>
+                    </div>
+
+                    <div class="service-card">
+                        <div>
+                            <span class="service-badge">Eventos & Empresas</span>
+                            <h3 class="service-title">Regalos Corporativos Eco-Conscientes</h3>
+                            <p class="service-text">
+                                Kits corporativos sostenibles para colaboradores y eventos especiales que refuerzan el compromiso de tu empresa con el planeta.
+                            </p>
+                            <ul class="service-list">
+                                <li>Empaques biodegradables o cajas de madera recuperada.</li>
+                                <li>Inclusión de historia de impacto medioambiental.</li>
+                                <li>Envíos corporativos a toda la República Mexicana.</li>
+                            </ul>
+                        </div>
+                        <a href="#contacto" class="btn btn-outline" onclick="selectSubject('Regalos Corporativos')">Solicitar Catálogo B2B</a>
+                    </div>
+
+                    <div class="service-card">
+                        <div>
+                            <span class="service-badge">Comunidad & Talleres</span>
+                            <h3 class="service-title">Talleres de Saponificación & Upcycling</h3>
+                            <p class="service-text">
+                                Impartimos experiencias y workshops interactivos sobre cosmética sólida, supra-reciclaje de frutas y cuidado consciente.
+                            </p>
+                            <ul class="service-list">
+                                <li>Sesiones presenciales en CDMX o virtuales.</li>
+                                <li>Materiales y concentrados incluidos.</li>
+                                <li>Ideal para actividades de integración de equipos (Team Building).</li>
+                            </ul>
+                        </div>
+                        <a href="#contacto" class="btn btn-outline" onclick="selectSubject('Talleres')">Reservar Taller</a>
+                    </div>
+
+                    <div class="service-card">
+                        <div>
+                            <span class="service-badge">Membresía</span>
+                            <h3 class="service-title">Suscripción Trimestral Almíbar Club</h3>
+                            <p class="service-text">
+                                Recibe periódicamente en la puerta de tu hogar una selección de jabones de edición limitada según la temporada de frutas.
+                            </p>
+                            <ul class="service-list">
+                                <li>4 jabones artesanales surtidos cada 3 meses.</li>
+                                <li>Acceso exclusivo a aromas de edición limitada.</li>
+                                <li>Envío prioritario y 15% de descuento permanente.</li>
+                            </ul>
+                        </div>
+                        <a href="#contacto" class="btn btn-outline" onclick="selectSubject('Suscripción Club')">Unirme al Club</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN PRODUCTOS -->
+        <section class="products" id="productos">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Catálogo Artesanal</span>
+                    <h2 class="section-title">Jabones formulados con intención</h2>
+                </div>
+
+                <div class="products-grid">
+                    <!-- Producto 1 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <span class="product-tag">Vitamina C</span>
+                            <svg viewBox="0 0 300 200" width="100%" height="100%">
+                                <rect width="100%" height="100%" fill="#FFE5D9"/>
+                                <rect x="75" y="40" width="150" height="120" rx="14" fill="#F4A261"/>
+                                <circle cx="150" cy="100" r="32" fill="#E76F51" opacity="0.45"/>
+                            </svg>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-title">Papaya & Zanahoria Sol</h3>
+                            <p class="product-desc">Rico en betacarotenos e iluminador natural. Rescatamos papayas maduras de la CDMX para revitalizar la piel cansada.</p>
+                            <div class="product-footer">
+                                <span class="product-price">$95 MXN</span>
+                                <a href="#contacto" class="btn btn-secondary" style="padding: 8px 18px; font-size: 0.88rem;" onclick="selectSubject('Pedir Jabón Papaya-Zanahoria')">Pedir</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Producto 2 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <span class="product-tag">Nutrición Profunda</span>
+                            <svg viewBox="0 0 300 200" width="100%" height="100%">
+                                <rect width="100%" height="100%" fill="#D8F3DC"/>
+                                <rect x="75" y="40" width="150" height="120" rx="14" fill="#52B788"/>
+                                <circle cx="120" cy="80" r="28" fill="#B7E4C7" opacity="0.6"/>
+                            </svg>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-title">Aguacate & Pepino Fresco</h3>
+                            <p class="product-desc">Altamente humectante para piel sensible. Aprovechamos aguacates pequeños ricos en aceites esenciales.</p>
+                            <div class="product-footer">
+                                <span class="product-price">$105 MXN</span>
+                                <a href="#contacto" class="btn btn-secondary" style="padding: 8px 18px; font-size: 0.88rem;" onclick="selectSubject('Pedir Jabón Aguacate-Pepino')">Pedir</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Producto 3 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <span class="product-tag">Exfoliante Botanico</span>
+                            <svg viewBox="0 0 300 200" width="100%" height="100%">
+                                <rect width="100%" height="100%" fill="#FFD6FF"/>
+                                <rect x="75" y="40" width="150" height="120" rx="14" fill="#FF477E"/>
+                                <circle cx="180" cy="120" r="38" fill="#FF85A1" opacity="0.5"/>
+                            </svg>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-title">Fresa & Cacao Silvestre</h3>
+                            <p class="product-desc">Exfoliante suave a base de semillas de fresa recuperadas y cacao orgánico para promover la regeneración celular.</p>
+                            <div class="product-footer">
+                                <span class="product-price">$95 MXN</span>
+                                <a href="#contacto" class="btn btn-secondary" style="padding: 8px 18px; font-size: 0.88rem;" onclick="selectSubject('Pedir Jabón Fresa-Cacao')">Pedir</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN SEGURIDAD Y GARANTÍA DE CALIDAD -->
+        <section class="security" id="seguridad">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Garantía Almíbar</span>
+                    <h2 class="section-title">Seguridad, Pureza y Control Dermo-Calidad</h2>
+                </div>
+
+                <div class="security-grid">
+                    <div class="security-card">
+                        <span class="security-icon">🔬</span>
+                        <h3 class="security-title">Pruebas Dermatológicas</h3>
+                        <p class="security-desc">Formulaciones evaluadas con pH neutro equilibrado para el cuidado respetuoso de la barrera cutánea.</p>
+                    </div>
+
+                    <div class="security-card">
+                        <span class="security-icon">🧼</span>
+                        <h3 class="security-title">Saponificación en Frío</h3>
+                        <p class="security-desc">Proceso artesanal de 6 semanas de curado que preserva las vitaminas naturales de las frutas sin sobrecalentar.</p>
+                    </div>
+
+                    <div class="security-card">
+                        <span class="security-icon">🚫</span>
+                        <h3 class="security-title">Libre de Tóxicos</h3>
+                        <p class="security-desc">0% sulfatos (SLS), parabenos, siliconas ni fragancias sintéticas derivadas de petróleo.</p>
+                    </div>
+
+                    <div class="security-card">
+                        <span class="security-icon">🐇</span>
+                        <h3 class="security-title">Cruelty-Free & Vegano</h3>
+                        <p class="security-desc">Jamás probado en animales. Insumos 100% de origen vegetal y sostenible.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN IMPACTO -->
+        <section class="container" id="impacto">
+            <div class="impact">
+                <div class="impact-content">
+                    <h2 class="impact-title">Transformando la CDMX barra por barra</h2>
+                    <p class="impact-text">
+                        En México se desechan diariamente miles de toneladas de alimento en buen estado. En Almíbar devolvemos el valor a lo natural mediante economía circular, aliándonos directamente con productores de la región.
+                    </p>
+                    
+                    <div class="impact-stats">
+                        <div class="stat-card">
+                            <div class="stat-number">+850 kg</div>
+                            <div class="stat-label">Fruta y verdura rescatada</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Biodegradable y Zero Waste</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">0%</div>
+                            <div class="stat-label">Plásticos de un solo uso</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN CONTACTO Y COTIZACIONES -->
+        <section class="contact" id="contacto">
+            <div class="container">
+                <div class="section-header" style="margin-bottom: 30px;">
+                    <span class="section-subtitle">Hablemos</span>
+                    <h2 class="section-title">Contáctanos o Solicita una Cotización</h2>
+                </div>
+
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h3 class="contact-title">¿Tienes preguntas o deseas distribuir Almíbar?</h3>
+                        <p class="contact-desc">
+                            Escríbenos para pedidos personales, mayoreo, proyectos especiales o colaboraciones en la Ciudad de México y resto del país.
+                        </p>
+
+                        <div class="info-item">
+                            <div class="info-icon">📍</div>
+                            <div class="info-text">
+                                <h4>Ubicación & Taller</h4>
+                                <p>Colonia Roma Norte, Cuauhtémoc, CDMX, México</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">✉️</div>
+                            <div class="info-text">
+                                <h4>Correo Electrónico</h4>
+                                <p>hola@almibar.mx • ventas@almibar.mx</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">💬</div>
+                            <div class="info-text">
+                                <h4>Atención WhatsApp</h4>
+                                <p>+52 (55) 4123-8900 (Lun a Vie 9:00 a 18:00 hrs)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form">
+                        <div class="alert-box" id="formAlert">¡Gracias! Tu mensaje ha sido enviado. Te responderemos pronto.</div>
+                        <form id="contactForm" onsubmit="handleFormSubmit(event)">
+                            <div class="form-group">
+                                <label class="form-label" for="nombre">Nombre Completo</label>
+                                <input type="text" id="nombre" class="form-input" placeholder="Tu nombre" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="email">Correo Electrónico</label>
+                                <input type="email" id="email" class="form-input" placeholder="ejemplo@correo.com" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="asunto">Interés / Servicio</label>
+                                <select id="asunto" class="form-select">
+                                    <option value="Compra de Jabones">Compra de Jabones Individuales</option>
+                                    <option value="Amenidades Hoteleras">Amenidades para Hoteles / Airbnb</option>
+                                    <option value="Regalos Corporativos">Regalos Corporativos / Mayoreo</option>
+                                    <option value="Talleres">Talleres & Workshops</option>
+                                    <option value="Dudas Generales">Consulta General</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="mensaje">Mensaje</label>
+                                <textarea id="mensaje" class="form-textarea" placeholder="Cuéntanos más sobre tu pedido o consulta..." required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-accent" style="width: 100%;">Enviar Mensaje</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- PIE DE PÁGINA (FOOTER) -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo" aria-label="Almíbar - Jabones Artesanales Naturales">
+                    <svg class="logo-badge-svg" viewBox="0 0 280 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="2" y="5" width="55" height="55" rx="16" fill="url(#logo_grad_footer)"/>
+                        <path d="M29 17 C20 17 16 25 16 33 C16 42 22 48 29 48 C36 48 42 42 42 33 C42 25 38 17 29 17 Z" fill="#FFFFFF" opacity="0.95"/>
+                        <path d="M29 20 C29 20 34 26 34 33 C34 39 31 44 29 45 C27 44 24 39 24 33 C24 26 29 20 29 20 Z" fill="#2D6A4F"/>
+                        <path d="M29 14 Q35 10 38 14 Q32 17 29 14 Z" fill="#FFBF69"/>
+                        <text x="70" y="32" font-family="'Fredoka', sans-serif" font-weight="700" font-size="26" fill="#2D6A4F" letter-spacing="1">ALMÍBAR</text>
+                        <text x="71" y="45" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="7.5" fill="#FF477E" letter-spacing="1.2">JABONES ARTESANALES NATURALES</text>
+                        <text x="71" y="55" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="6.5" fill="#52B788" letter-spacing="1">FRUTAS REUTILIZADAS</text>
+                        <defs>
+                            <linearGradient id="logo_grad_footer" x1="0" y1="0" x2="55" y2="55" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#FF9F1C"/>
+                                <stop offset="1" stop-color="#FF477E"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </a>
+                <p>Transformando el desperdicio en cuidado consciente para la piel. Orgullosamente elaborado en la Ciudad de México.</p>
+            </div>
+            
+            <div>
+                <h4 class="footer-title">Navegación</h4>
+                <ul class="footer-links">
+                    <li><a href="#servicios">Servicios B2B</a></li>
+                    <li><a href="#productos">Productos</a></li>
+                    <li><a href="#seguridad">Dermo-Seguridad</a></li>
+                    <li><a href="#impacto">Impacto Ambiental</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="footer-title">Servicios</h4>
+                <ul class="footer-links">
+                    <li><a href="#servicios">Amenidades Hoteleras</a></li>
+                    <li><a href="#servicios">Regalos Corporativos</a></li>
+                    <li><a href="#servicios">Talleres & Workshops</a></li>
+                    <li><a href="#servicios">Almíbar Club</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="footer-title">Contacto</h4>
+                <ul class="footer-links">
+                    <li><a href="#contacto">hola@almibar.mx</a></li>
+                    <li><a href="#contacto">@almibar.cdmx</a></li>
+                    <li><a href="#contacto">Roma Norte, CDMX</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="container copyright">
+            <p>&copy; 2026 Almíbar CDMX. Todos los derechos reservados. Cuidando tu piel y al planeta.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navegación responsive
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Selección automática de asunto en formulario
+        function selectSubject(subjectValue) {
+            const selectEl = document.getElementById('asunto');
+            if (selectEl) {
+                for (let option of selectEl.options) {
+                    if (option.value.includes(subjectValue) || subjectValue.includes(option.value)) {
+                        option.selected = true;
+                        break;
+                    }
+                }
+            }
+        }
+
+        // Manejo del formulario sin recarga ni alert()
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const alertBox = document.getElementById('formAlert');
+            alertBox.style.display = 'block';
+            document.getElementById('contactForm').reset();
+            setTimeout(() => {
+                alertBox.style.display = 'none';
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
